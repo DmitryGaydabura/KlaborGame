@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+
 
 public class General {
     public static void Start() {
@@ -405,7 +405,7 @@ public class General {
         boolean P1has3InARow;
         for (int j = 1; j < 7; j++) {
             if (Math.abs(Player1Hand[j].uniqueIndex - Player1Hand[j - 1].uniqueIndex) == 1 && Math.abs(Player1Hand[j].uniqueIndex - Player1Hand[j + 1].uniqueIndex) == 1
-                    && P1has4InARow != true) {
+                    && !P1has4InARow) {
                 pointsOf1and3 += 20;
                 P1has3InARow = true;
                 System.out.println("Player 1 has three in a row! Starting with " + Player1Hand[j - 1]);
@@ -415,7 +415,7 @@ public class General {
         boolean P2has3InARow;
         for (int j = 1; j < 7; j++) {
             if (Math.abs(Player2Hand[j].uniqueIndex - Player2Hand[j - 1].uniqueIndex) == 1 && Math.abs(Player2Hand[j].uniqueIndex - Player2Hand[j + 1].uniqueIndex) == 1
-                    && P2has4InARow != true) {
+                    && !P2has4InARow) {
                 pointsOf2and4 += 20;
                 P2has3InARow = true;
                 System.out.println("Player 2 has three in a row! Starting with " + Player2Hand[j - 1]);
@@ -425,7 +425,7 @@ public class General {
         boolean P3has3InARow;
         for (int j = 1; j < 7; j++) {
             if (Math.abs(Player3Hand[j].uniqueIndex - Player3Hand[j - 1].uniqueIndex) == 1 && Math.abs(Player3Hand[j].uniqueIndex - Player3Hand[j + 1].uniqueIndex) == 1
-                    && P3has4InARow != true) {
+                    && !P3has4InARow) {
                 pointsOf1and3 += 20;
                 P3has3InARow = true;
                 System.out.println("Player 3 has three in a row! Starting with " + Player3Hand[j - 1]);
@@ -435,7 +435,7 @@ public class General {
         boolean P4has3InARow;
         for (int j = 1; j < 7; j++) {
             if (Math.abs(Player4Hand[j].uniqueIndex - Player4Hand[j - 1].uniqueIndex) == 1 && Math.abs(Player4Hand[j].uniqueIndex - Player4Hand[j + 1].uniqueIndex) == 1
-                    && P4has4InARow != true) {
+                    && !P4has4InARow) {
                 pointsOf2and4 += 20;
                 P3has4InARow = true;
                 System.out.println("Player 4 has three in a row! Starting with " + Player4Hand[j - 1]);
@@ -453,8 +453,6 @@ public class General {
                         PlayCards[0] = Player1Hand[rand];
                         Player1Hand[rand] = null;
                         break;
-                    } else {
-                        continue;
                     }
                 }
                 //second player turn
@@ -468,7 +466,7 @@ public class General {
                 }
                 if (PlayCards[1] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster == true) {
+                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
                             PlayCards[1] = Player2Hand[j];
                             Player2Hand[j] = null;
                             break;
@@ -496,7 +494,7 @@ public class General {
                 }
                 if (PlayCards[2] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster == true) {
+                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
                             PlayCards[2] = Player3Hand[j];
                             Player3Hand[j] = null;
                             break;
@@ -524,7 +522,7 @@ public class General {
                 }
                 if (PlayCards[3] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster == true) {
+                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
                             PlayCards[3] = Player4Hand[j];
                             Player4Hand[j] = null;
                             break;
@@ -551,8 +549,6 @@ public class General {
                         PlayCards[1] = Player2Hand[rand];
                         Player2Hand[rand] = null;
                         break;
-                    } else {
-                        continue;
                     }
                 }
                 //third player turn
@@ -566,7 +562,7 @@ public class General {
                 }
                 if (PlayCards[2] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster == true) {
+                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
                             PlayCards[2] = Player3Hand[j];
                             Player3Hand[j] = null;
                             break;
@@ -594,7 +590,7 @@ public class General {
                 }
                 if (PlayCards[3] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster == true) {
+                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
                             PlayCards[3] = Player4Hand[j];
                             Player4Hand[j] = null;
                             break;
@@ -622,7 +618,7 @@ public class General {
                 }
                 if (PlayCards[0] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster == true) {
+                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
                             PlayCards[0] = Player1Hand[j];
                             Player1Hand[j] = null;
                             break;
@@ -649,8 +645,6 @@ public class General {
                         PlayCards[2] = Player3Hand[rand];
                         Player3Hand[rand] = null;
                         break;
-                    } else {
-                        continue;
                     }
                 }
                 //fourth player turn
@@ -664,7 +658,7 @@ public class General {
                 }
                 if (PlayCards[3] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster == true) {
+                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
                             PlayCards[3] = Player4Hand[j];
                             Player4Hand[j] = null;
                             break;
@@ -692,7 +686,7 @@ public class General {
                 }
                 if (PlayCards[0] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster == true) {
+                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
                             PlayCards[0] = Player1Hand[j];
                             Player1Hand[j] = null;
                             break;
@@ -720,7 +714,7 @@ public class General {
                 }
                 if (PlayCards[1] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster == true) {
+                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
                             PlayCards[1] = Player2Hand[j];
                             Player2Hand[j] = null;
                             break;
@@ -746,8 +740,6 @@ public class General {
                         PlayCards[3] = Player4Hand[rand];
                         Player4Hand[rand] = null;
                         break;
-                    } else {
-                        continue;
                     }
                 }
                 //first player turn
@@ -761,7 +753,7 @@ public class General {
                 }
                 if (PlayCards[0] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster == true) {
+                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
                             PlayCards[0] = Player1Hand[j];
                             Player1Hand[j] = null;
                             break;
@@ -789,7 +781,7 @@ public class General {
                 }
                 if (PlayCards[1] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster == true) {
+                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
                             PlayCards[1] = Player2Hand[j];
                             Player2Hand[j] = null;
                             break;
@@ -817,7 +809,7 @@ public class General {
                 }
                 if (PlayCards[2] == null) {
                     for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster == true) {
+                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
                             PlayCards[2] = Player3Hand[j];
                             Player3Hand[j] = null;
                             break;
@@ -837,8 +829,7 @@ public class General {
 
             }
 
-            System.out.println();
-            System.out.println();
+
             System.out.println("Game " + (k + 1));
             System.out.println("                               Player 3                          ");
             System.out.println();
@@ -851,39 +842,45 @@ public class General {
             System.out.println("                               Player 1                          ");
 
 
-            pointsOf1and3 += PlayCards[0].value + + PlayCards[2].value;
-            pointsOf2and4 += PlayCards[1].value + + PlayCards[3].value;
-
-
+            pointsOf1and3 += PlayCards[0].value + PlayCards[2].value;
+            pointsOf2and4 += PlayCards[1].value + PlayCards[3].value;
 
 
             if (PlayCards[0].value > PlayCards[1].value &&
                     PlayCards[0].value > PlayCards[2].value &&
-                    PlayCards[0].value > PlayCards[3].value ){
-                if (k == 7){pointsOf1and3 += 10;}
+                    PlayCards[0].value > PlayCards[3].value) {
+                if (k == 7) {
+                    pointsOf1and3 += 10;
+                }
                 System.out.println("Player 1 won this round with " + PlayCards[0]);
-                System.out.println("Total amount of points is " + (PlayCards[0].value+PlayCards[1].value+PlayCards[2].value+PlayCards[3].value));
+                System.out.println("Total amount of points is " + (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
             }
             if (PlayCards[1].value > PlayCards[0].value &&
                     PlayCards[1].value > PlayCards[2].value &&
-                    PlayCards[1].value > PlayCards[3].value ){
-                if (k == 7){pointsOf2and4 += 10;}
+                    PlayCards[1].value > PlayCards[3].value) {
+                if (k == 7) {
+                    pointsOf2and4 += 10;
+                }
                 System.out.println("Player 2 won this round with " + PlayCards[1]);
-                System.out.println("Total amount of points is " + (PlayCards[0].value+PlayCards[1].value+PlayCards[2].value+PlayCards[3].value));
+                System.out.println("Total amount of points is " + (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
             }
             if (PlayCards[2].value > PlayCards[0].value &&
                     PlayCards[2].value > PlayCards[1].value &&
-                    PlayCards[2].value > PlayCards[3].value ){
-                if (k == 7){pointsOf1and3 += 10;}
+                    PlayCards[2].value > PlayCards[3].value) {
+                if (k == 7) {
+                    pointsOf1and3 += 10;
+                }
                 System.out.println("Player 3 won this round with " + PlayCards[2]);
-                System.out.println("Total amount of points is " + (PlayCards[0].value+PlayCards[1].value+PlayCards[2].value+PlayCards[3].value));
+                System.out.println("Total amount of points is " + (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
             }
             if (PlayCards[3].value > PlayCards[0].value &&
                     PlayCards[3].value > PlayCards[2].value &&
-                    PlayCards[3].value > PlayCards[1].value ){
-                if (k == 7){pointsOf2and4 += 10;}
+                    PlayCards[3].value > PlayCards[1].value) {
+                if (k == 7) {
+                    pointsOf2and4 += 10;
+                }
                 System.out.println("Player 4 won this round with " + PlayCards[3]);
-                System.out.println("Total amount of points is " + (PlayCards[0].value+PlayCards[1].value+PlayCards[2].value+PlayCards[3].value));
+                System.out.println("Total amount of points is " + (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
             }
 
 
@@ -891,11 +888,11 @@ public class General {
                 PlayCards[m] = null;
             }
 
-
+            System.out.println("-----------------------------------------------------------------------------------");
         }
         System.out.println("Game has finished!");
-        System.out.println("Total amount of points of 1 and 3 Player is " + pointsOf1and3) ;
-        System.out.println("Total amount of points of 2 and 4 Player is " + pointsOf2and4) ;
+        System.out.println("Total amount of points of 1 and 3 Player is " + pointsOf1and3);
+        System.out.println("Total amount of points of 2 and 4 Player is " + pointsOf2and4);
 
 
     }
