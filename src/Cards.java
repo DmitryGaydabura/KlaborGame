@@ -1,7 +1,7 @@
 public class Cards {
     public String name;
     public int uniqueIndex;
-    public int value;
+    public double value;
 
     public int typeValue;
 
@@ -9,7 +9,7 @@ public class Cards {
 
     public int type;
 
-    public Cards(String name, int uniqueIndex, int value, int typeValue, boolean isMaster,int type) {
+    public Cards(String name, int uniqueIndex, double value, int typeValue, boolean isMaster,int type) {
         this.name = name;
         this.uniqueIndex = uniqueIndex;
         this.value = value;
@@ -19,7 +19,7 @@ public class Cards {
     }
 
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
@@ -31,6 +31,8 @@ public class Cards {
     public String toString() {
         return name;
     }
+
+
 
 
 }
