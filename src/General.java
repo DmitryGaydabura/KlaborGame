@@ -1,7 +1,7 @@
 
 
 public class General {
-    public static void Start() {
+    public static void Start() throws InterruptedException {
         String separation = "--------------------------------------------------------------------------";
         //There are several arrays.
         //AllCards is used to store 32 Objects of Cards.
@@ -51,6 +51,17 @@ public class General {
         Cards NineOfDiamonds = new Cards("Nine Of Diamonds", 32, 0.0003, 3, false, 4);
         Cards EightOfDiamonds = new Cards("Eight Of Diamonds", 33, 0.0002, 2, false, 4);
         Cards SevenOfDiamonds = new Cards("Seven Of Diamonds", 34, 0.0001, 1, false, 4);
+        int p = 0;
+        int v = 0;
+        double poltinau1 = 0;
+        double poltinau2 = 0;
+        double poltinau3 = 0;
+        double poltinau4 = 0;
+        double terzu1 = 0;
+        double terzu2 = 0;
+        double terzu3 = 0;
+        double terzu4 = 0;
+
 
         //This block of code is used to determine the type of "Master" cards,
         //by creating a random double number and determining the interval.
@@ -335,37 +346,42 @@ public class General {
         for (int j = 0; j < 8; j++) {
             System.out.println(Player1Hand[j]);
         }
+        Thread.sleep(1000);
         System.out.println(separation);
         System.out.println();
         System.out.println("Player 2 hand is:");
         for (int j = 0; j < 8; j++) {
             System.out.println(Player2Hand[j]);
         }
+        Thread.sleep(1000);
         System.out.println(separation);
         System.out.println("Player 3 hand is:");
         for (int j = 0; j < 8; j++) {
             System.out.println(Player3Hand[j]);
         }
+        Thread.sleep(1000);
         System.out.println(separation);
         System.out.println();
         System.out.println("Player 4 hand is:");
         for (int j = 0; j < 8; j++) {
             System.out.println(Player4Hand[j]);
         }
+        Thread.sleep(1000);
+
         System.out.println(separation);
 
 
         //The game has started.This code will display the type of master cards for this particular set.
 
-        System.out.println("Game Started! The Master Cards is " );
-        if(CardClass == "Spades"){
+        System.out.println("Game Started! The Master Cards is ");
+        if (CardClass == "Spades") {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
             System.out.println("|  ____DIAMONDS___  |");
             System.out.println("|  _______________  |");
             System.out.println("|         ^         |");
-            System.out.println("|\t  / \\        |");
+            System.out.println("|        / \\        |");
             System.out.println("|       /   \\       |");
             System.out.println("|       \\   /       |");
             System.out.println("|        \\ /        |");
@@ -393,7 +409,7 @@ public class General {
             System.out.println("|___________________|");
             System.out.println();
 
-        }else if(CardClass == "Clubs"){
+        } else if (CardClass == "Clubs") {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -410,7 +426,7 @@ public class General {
             System.out.println("|  _______________  |");
             System.out.println("|___________________|");
             System.out.println();
-        }else{
+        } else {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -428,6 +444,8 @@ public class General {
             System.out.println("|___________________|");
             System.out.println();
         }
+        Thread.sleep(1000);
+
 
 
         //These variables will collect information about total amount of points of each team.
@@ -450,6 +468,7 @@ public class General {
                 pointsOf1and3 += 40;
                 P1has4InARow = true;
                 System.out.println("Player 1 has four in a row! Starting with " + Player1Hand[j - 2]);
+                poltinau1++;
                 break;
             }
         }
@@ -462,6 +481,7 @@ public class General {
                 pointsOf2and4 += 40;
                 P2has4InARow = true;
                 System.out.println("Player 2 has four in a row! Starting with " + Player2Hand[j - 2]);
+                poltinau2++;
                 break;
             }
         }
@@ -474,6 +494,7 @@ public class General {
                 pointsOf1and3 += 40;
                 P3has4InARow = true;
                 System.out.println("Player 3 has four in a row! Starting with " + Player3Hand[j - 2]);
+                poltinau3++;
                 break;
             }
         }
@@ -486,6 +507,7 @@ public class General {
                 pointsOf2and4 += 40;
                 P4has4InARow = true;
                 System.out.println("Player 4 has four in a row! Starting with " + Player4Hand[j - 2]);
+                poltinau4++;
                 break;
             }
         }
@@ -499,6 +521,7 @@ public class General {
                     && !P1has4InARow) {
                 pointsOf1and3 += 20;
                 System.out.println("Player 1 has three in a row! Starting with " + Player1Hand[j - 1]);
+                terzu1++;
             }
         }
 
@@ -508,6 +531,7 @@ public class General {
                     && !P2has4InARow) {
                 pointsOf2and4 += 20;
                 System.out.println("Player 2 has three in a row! Starting with " + Player2Hand[j - 1]);
+                terzu2++;
             }
         }
 
@@ -517,6 +541,7 @@ public class General {
                     && !P3has4InARow) {
                 pointsOf1and3 += 20;
                 System.out.println("Player 3 has three in a row! Starting with " + Player3Hand[j - 1]);
+                terzu3++;
             }
         }
 
@@ -526,8 +551,10 @@ public class General {
                     && !P4has4InARow) {
                 pointsOf2and4 += 20;
                 System.out.println("Player 4 has three in a row! Starting with " + Player4Hand[j - 1]);
+                terzu4++;
             }
         }
+        Thread.sleep(1000);
 
         System.out.println(separation);
 
@@ -958,7 +985,7 @@ public class General {
                     pointsOf1and3 += 10;
                 }
                 System.out.println("Player 1 won this round with " + PlayCards[0]);
-                System.out.println("Total amount of points is " + (int)(PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
+                System.out.println("Total amount of points is " + (int) (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
                 pointsOf1and3 += PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value;
             }
             if (PlayCards[1].value > PlayCards[0].value &&
@@ -968,7 +995,7 @@ public class General {
                     pointsOf2and4 += 10;
                 }
                 System.out.println("Player 2 won this round with " + PlayCards[1]);
-                System.out.println("Total amount of points is " + (int)(PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
+                System.out.println("Total amount of points is " + (int) (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
                 pointsOf2and4 += PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value;
             }
             if (PlayCards[2].value > PlayCards[0].value &&
@@ -978,7 +1005,7 @@ public class General {
                     pointsOf1and3 += 10;
                 }
                 System.out.println("Player 3 won this round with " + PlayCards[2]);
-                System.out.println("Total amount of points is " + (int)(PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
+                System.out.println("Total amount of points is " + (int) (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
                 pointsOf1and3 += PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value;
             }
             if (PlayCards[3].value > PlayCards[0].value &&
@@ -988,10 +1015,11 @@ public class General {
                     pointsOf2and4 += 10;
                 }
                 System.out.println("Player 4 won this round with " + PlayCards[3]);
-                System.out.println("Total amount of points is " + (int)(PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
+                System.out.println("Total amount of points is " + (int) (PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value));
                 pointsOf2and4 += PlayCards[0].value + PlayCards[1].value + PlayCards[2].value + PlayCards[3].value;
             }
 
+            Thread.sleep(1000);
 
             for (int m = 0; m < 4; m++) {
                 PlayCards[m] = null;
@@ -1004,13 +1032,18 @@ public class General {
         System.out.println("Total amount of points of 1 and 3 Player is " + pointsOf1and3);
         System.out.println("Total amount of points of 2 and 4 Player is " + pointsOf2and4);
         System.out.println(separation);
+
+
         if (pointsOf1and3 > pointsOf2and4) {
             System.out.println("Player 1 and Player 3 won!");
+            p++;
         } else {
             System.out.println("Player 2 and Player 4 won!");
+            v++;
         }
         System.out.println(separation);
 
-
     }
+
+
 }
