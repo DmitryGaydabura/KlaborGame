@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class General {
     public static void Start() throws InterruptedException {
@@ -51,16 +51,7 @@ public class General {
         Cards NineOfDiamonds = new Cards("Nine Of Diamonds", 32, 0.0003, 3, false, 4);
         Cards EightOfDiamonds = new Cards("Eight Of Diamonds", 33, 0.0002, 2, false, 4);
         Cards SevenOfDiamonds = new Cards("Seven Of Diamonds", 34, 0.0001, 1, false, 4);
-        int p = 0;
-        int v = 0;
-        double poltinau1 = 0;
-        double poltinau2 = 0;
-        double poltinau3 = 0;
-        double poltinau4 = 0;
-        double terzu1 = 0;
-        double terzu2 = 0;
-        double terzu3 = 0;
-        double terzu4 = 0;
+
 
 
         //This block of code is used to determine the type of "Master" cards,
@@ -372,7 +363,7 @@ public class General {
         //The game has started.This code will display the type of master cards for this particular set.
 
         System.out.println("Game Started! The Master Cards is ");
-        if (CardClass == "Spades") {
+        if (Objects.equals(CardClass, "Spades")) {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -389,7 +380,7 @@ public class General {
             System.out.println("|  _______________  |");
             System.out.println("|___________________|");
             System.out.println();
-        } else if (CardClass == "Hearts") {
+        } else if (Objects.equals(CardClass, "Hearts")) {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -407,7 +398,7 @@ public class General {
             System.out.println("|___________________|");
             System.out.println();
 
-        } else if (CardClass == "Clubs") {
+        } else if (Objects.equals(CardClass, "Clubs")) {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -466,7 +457,6 @@ public class General {
                 pointsOf1and3 += 40;
                 P1has4InARow = true;
                 System.out.println("Player 1 has four in a row! Starting with " + Player1Hand[j - 2]);
-                poltinau1++;
                 break;
             }
         }
@@ -479,7 +469,6 @@ public class General {
                 pointsOf2and4 += 40;
                 P2has4InARow = true;
                 System.out.println("Player 2 has four in a row! Starting with " + Player2Hand[j - 2]);
-                poltinau2++;
                 break;
             }
         }
@@ -492,7 +481,6 @@ public class General {
                 pointsOf1and3 += 40;
                 P3has4InARow = true;
                 System.out.println("Player 3 has four in a row! Starting with " + Player3Hand[j - 2]);
-                poltinau3++;
                 break;
             }
         }
@@ -505,7 +493,6 @@ public class General {
                 pointsOf2and4 += 40;
                 P4has4InARow = true;
                 System.out.println("Player 4 has four in a row! Starting with " + Player4Hand[j - 2]);
-                poltinau4++;
                 break;
             }
         }
@@ -519,7 +506,6 @@ public class General {
                     && !P1has4InARow) {
                 pointsOf1and3 += 20;
                 System.out.println("Player 1 has three in a row! Starting with " + Player1Hand[j - 1]);
-                terzu1++;
             }
         }
 
@@ -529,7 +515,6 @@ public class General {
                     && !P2has4InARow) {
                 pointsOf2and4 += 20;
                 System.out.println("Player 2 has three in a row! Starting with " + Player2Hand[j - 1]);
-                terzu2++;
             }
         }
 
@@ -539,7 +524,6 @@ public class General {
                     && !P3has4InARow) {
                 pointsOf1and3 += 20;
                 System.out.println("Player 3 has three in a row! Starting with " + Player3Hand[j - 1]);
-                terzu3++;
             }
         }
 
@@ -549,7 +533,6 @@ public class General {
                     && !P4has4InARow) {
                 pointsOf2and4 += 20;
                 System.out.println("Player 4 has three in a row! Starting with " + Player4Hand[j - 1]);
-                terzu4++;
             }
         }
         Thread.sleep(1000);
@@ -973,7 +956,6 @@ public class General {
             System.out.println("                                    ^                        ");
             System.out.println("                                    |                        ");
             System.out.println("                                |Player 1|                          ");
-            System.out.println("");
 
 
             if (PlayCards[0].value > PlayCards[1].value &&
@@ -1034,10 +1016,8 @@ public class General {
 
         if (pointsOf1and3 > pointsOf2and4) {
             System.out.println("Player 1 and Player 3 won!");
-            p++;
         } else {
             System.out.println("Player 2 and Player 4 won!");
-            v++;
         }
         System.out.println(separation);
 
