@@ -348,7 +348,6 @@ public class General {
         }
         Thread.sleep(1000);
         System.out.println(separation);
-        System.out.println();
         System.out.println("Player 2 hand is:");
         for (int j = 0; j < 8; j++) {
             System.out.println(Player2Hand[j]);
@@ -361,7 +360,6 @@ public class General {
         }
         Thread.sleep(1000);
         System.out.println(separation);
-        System.out.println();
         System.out.println("Player 4 hand is:");
         for (int j = 0; j < 8; j++) {
             System.out.println(Player4Hand[j]);
