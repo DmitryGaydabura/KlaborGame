@@ -9,13 +9,16 @@ public class Cards {
 
     public int type;
 
-    public Cards(String name, int uniqueIndex, double value, int typeValue, boolean isMaster,int type) {
+    public String letter;
+
+    public Cards(String name, int uniqueIndex, double value, int typeValue, boolean isMaster,int type,String letter) {
         this.name = name;
         this.uniqueIndex = uniqueIndex;
         this.value = value;
         this.typeValue = typeValue;
         this.isMaster = isMaster;
         this.type = type;
+        this.letter = letter;
     }
 
 

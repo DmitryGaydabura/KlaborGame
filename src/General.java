@@ -3,6 +3,15 @@ import java.util.Objects;
 public class General {
     public static void Start() throws InterruptedException {
         String separation = "--------------------------------------------------------------------------";
+        System.out.println(separation);
+        System.out.println("\n" +
+                "  _  ___       _                   _____                      \n" +
+                " | |/ / |     | |                 / ____|                     \n" +
+                " | ' /| | __ _| |__   ___  _ __  | |  __  __ _ _ __ ___   ___ \n" +
+                " |  < | |/ _` | '_ \\ / _ \\| '__| | | |_ |/ _` | '_ ` _ \\ / _ \\\n" +
+                " | . \\| | (_| | |_) | (_) | |    | |__| | (_| | | | | | |  __/\n" +
+                " |_|\\_\\_|\\__,_|_.__/ \\___/|_|     \\_____|\\__,_|_| |_| |_|\\___|\n");
+
         //There are several arrays.
         //AllCards is used to store 32 Objects of Cards.
         Cards[] AllCards = new Cards[32];
@@ -16,42 +25,41 @@ public class General {
 
         //Creating all Objects.
         //Spades
-        Cards AceOfSpades = new Cards("Ace Of Spades", 0, 11, 8, false, 1);
-        Cards KingOfSpades = new Cards("King Of Spades", 1, 4, 7, false, 1);
-        Cards QueenOfSpades = new Cards("Queen Of Spades", 2, 3, 6, false, 1);
-        Cards JackOfSpades = new Cards("Jack Of Spades", 3, 2, 5, false, 1);
-        Cards TenOfSpades = new Cards("Ten Of Spades", 4, 10, 4, false, 1);
-        Cards NineOfSpades = new Cards("Nine Of Spades", 5, 0.0003, 3, false, 1);
-        Cards EightOfSpades = new Cards("Eight Of Spades", 6, 0.0002, 2, false, 1);
-        Cards SevenOfSpades = new Cards("Seven Of Spades", 7, 0.0001, 1, false, 1);
+        Cards AceOfSpades = new Cards("Ace Of Spades", 0, 11, 8, false, 1, "A");
+        Cards KingOfSpades = new Cards("King Of Spades", 1, 4, 7, false, 1, "B");
+        Cards QueenOfSpades = new Cards("Queen Of Spades", 2, 3, 6, false, 1, "C");
+        Cards JackOfSpades = new Cards("Jack Of Spades", 3, 2, 5, false, 1, "D");
+        Cards TenOfSpades = new Cards("Ten Of Spades", 4, 10, 4, false, 1, "E");
+        Cards NineOfSpades = new Cards("Nine Of Spades", 5, 0.0003, 3, false, 1, "F");
+        Cards EightOfSpades = new Cards("Eight Of Spades", 6, 0.0002, 2, false, 1, "G");
+        Cards SevenOfSpades = new Cards("Seven Of Spades", 7, 0.0001, 1, false, 1, "H");
         //Hearts
-        Cards AceOfHearts = new Cards("Ace Of Hearts", 9, 11, 8, false, 2);
-        Cards KingOfHearts = new Cards("King Of Hearts", 10, 4, 7, false, 2);
-        Cards QueenOfHearts = new Cards("Queen Of Hearts", 11, 3, 6, false, 2);
-        Cards JackOfHearts = new Cards("Jack Of Hearts", 12, 2, 5, false, 2);
-        Cards TenOfHearts = new Cards("Ten Of Hearts", 13, 10, 4, false, 2);
-        Cards NineOfHearts = new Cards("Nine Of Hearts", 14, 0.0003, 3, false, 2);
-        Cards EightOfHearts = new Cards("Eight Of Hearts", 15, 0.0002, 2, false, 2);
-        Cards SevenOfHearts = new Cards("Seven Of Hearts", 16, 0.0001, 1, false, 2);
+        Cards AceOfHearts = new Cards("Ace Of Hearts", 9, 11, 8, false, 2, "I");
+        Cards KingOfHearts = new Cards("King Of Hearts", 10, 4, 7, false, 2, "G");
+        Cards QueenOfHearts = new Cards("Queen Of Hearts", 11, 3, 6, false, 2, "K");
+        Cards JackOfHearts = new Cards("Jack Of Hearts", 12, 2, 5, false, 2, "L");
+        Cards TenOfHearts = new Cards("Ten Of Hearts", 13, 10, 4, false, 2, "M");
+        Cards NineOfHearts = new Cards("Nine Of Hearts", 14, 0.0003, 3, false, 2, "N");
+        Cards EightOfHearts = new Cards("Eight Of Hearts", 15, 0.0002, 2, false, 2, "O");
+        Cards SevenOfHearts = new Cards("Seven Of Hearts", 16, 0.0001, 1, false, 2, "P");
         //Clubs
-        Cards AceOfClubs = new Cards("Ace Of Clubs", 18, 11, 8, false, 3);
-        Cards KingOfClubs = new Cards("King Of Clubs", 19, 4, 7, false, 3);
-        Cards QueenOfClubs = new Cards("Queen Of Clubs", 20, 3, 6, false, 3);
-        Cards JackOfClubs = new Cards("Jack Of Clubs", 21, 2, 5, false, 3);
-        Cards TenOfClubs = new Cards("Ten Of Clubs", 22, 10, 4, false, 3);
-        Cards NineOfClubs = new Cards("Nine Of Clubs", 23, 0.0003, 3, false, 3);
-        Cards EightOfClubs = new Cards("Eight Of Clubs", 24, 0.0002, 2, false, 3);
-        Cards SevenOfClubs = new Cards("Seven Of Clubs", 25, 0.0001, 1, false, 3);
+        Cards AceOfClubs = new Cards("Ace Of Clubs", 18, 11, 8, false, 3, "Q");
+        Cards KingOfClubs = new Cards("King Of Clubs", 19, 4, 7, false, 3, "R");
+        Cards QueenOfClubs = new Cards("Queen Of Clubs", 20, 3, 6, false, 3, "S");
+        Cards JackOfClubs = new Cards("Jack Of Clubs", 21, 2, 5, false, 3, "T");
+        Cards TenOfClubs = new Cards("Ten Of Clubs", 22, 10, 4, false, 3, "U");
+        Cards NineOfClubs = new Cards("Nine Of Clubs", 23, 0.0003, 3, false, 3, "V");
+        Cards EightOfClubs = new Cards("Eight Of Clubs", 24, 0.0002, 2, false, 3, "W");
+        Cards SevenOfClubs = new Cards("Seven Of Clubs", 25, 0.0001, 1, false, 3, "X");
         //Diamonds
-        Cards AceOfDiamonds = new Cards("Ace Of Diamonds", 27, 11, 8, false, 4);
-        Cards KingOfDiamonds = new Cards("King Of Diamonds", 28, 4, 7, false, 4);
-        Cards QueenOfDiamonds = new Cards("Queen Of Diamonds", 29, 3, 6, false, 4);
-        Cards JackOfDiamonds = new Cards("Jack Of Diamonds", 30, 2, 5, false, 4);
-        Cards TenOfDiamonds = new Cards("Ten Of Diamonds", 31, 10, 4, false, 4);
-        Cards NineOfDiamonds = new Cards("Nine Of Diamonds", 32, 0.0003, 3, false, 4);
-        Cards EightOfDiamonds = new Cards("Eight Of Diamonds", 33, 0.0002, 2, false, 4);
-        Cards SevenOfDiamonds = new Cards("Seven Of Diamonds", 34, 0.0001, 1, false, 4);
-
+        Cards AceOfDiamonds = new Cards("Ace Of Diamonds", 27, 11, 8, false, 4, "Y");
+        Cards KingOfDiamonds = new Cards("King Of Diamonds", 28, 4, 7, false, 4, "Z");
+        Cards QueenOfDiamonds = new Cards("Queen Of Diamonds", 29, 3, 6, false, 4, "a");
+        Cards JackOfDiamonds = new Cards("Jack Of Diamonds", 30, 2, 5, false, 4, "b");
+        Cards TenOfDiamonds = new Cards("Ten Of Diamonds", 31, 10, 4, false, 4, "c");
+        Cards NineOfDiamonds = new Cards("Nine Of Diamonds", 32, 0.0003, 3, false, 4, "d");
+        Cards EightOfDiamonds = new Cards("Eight Of Diamonds", 33, 0.0002, 2, false, 4, "e");
+        Cards SevenOfDiamonds = new Cards("Seven Of Diamonds", 34, 0.0001, 1, false, 4, "f");
 
 
         //This block of code is used to determine the type of "Master" cards,
@@ -334,27 +342,35 @@ public class General {
 
         System.out.println(separation);
         System.out.println("Player 1 hand is:");
+        StringBuilder P1Cards = new StringBuilder();
+        StringBuilder P2Cards = new StringBuilder();
+        StringBuilder P3Cards = new StringBuilder();
+        StringBuilder P4Cards = new StringBuilder();
         for (int j = 0; j < 8; j++) {
-            System.out.println(Player1Hand[j]);
+            P1Cards.append(Player1Hand[j].letter);
         }
+        ASCII.getPlayerCards(P1Cards.toString());
         Thread.sleep(1000);
         System.out.println(separation);
         System.out.println("Player 2 hand is:");
         for (int j = 0; j < 8; j++) {
-            System.out.println(Player2Hand[j]);
+            P2Cards.append(Player2Hand[j].letter);
         }
+        ASCII.getPlayerCards(P2Cards.toString());
         Thread.sleep(1000);
         System.out.println(separation);
         System.out.println("Player 3 hand is:");
         for (int j = 0; j < 8; j++) {
-            System.out.println(Player3Hand[j]);
+            P3Cards.append(Player3Hand[j].letter);
         }
+        ASCII.getPlayerCards(P3Cards.toString());
         Thread.sleep(1000);
         System.out.println(separation);
         System.out.println("Player 4 hand is:");
         for (int j = 0; j < 8; j++) {
-            System.out.println(Player4Hand[j]);
+            P4Cards.append(Player4Hand[j].letter);
         }
+        ASCII.getPlayerCards(P4Cards.toString());
         Thread.sleep(1000);
 
         System.out.println(separation);
@@ -434,7 +450,6 @@ public class General {
             System.out.println();
         }
         Thread.sleep(1000);
-
 
 
         //These variables will collect information about total amount of points of each team.
