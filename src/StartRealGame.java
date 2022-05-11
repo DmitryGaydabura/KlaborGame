@@ -1,8 +1,12 @@
 import java.util.Objects;
+import java.util.Scanner;
+import java.io.*;
 
-public class General {
-    public static void StartSimulation() throws InterruptedException {
-        String separation = "--------------------------------------------------------------------------";
+public class StartRealGame {
+    public static void Start() throws InterruptedException {
+
+
+        String separation = "---------------------------------------------------------------------------------------------------";
         System.out.println(separation);
 
 
@@ -335,45 +339,20 @@ public class General {
         // in case of ambiguous situations.
 
         System.out.println(separation);
-        System.out.println("Player 1 hand is:");
+//        System.out.println("Player 1 hand is:");
         StringBuilder P1Cards = new StringBuilder();
-        StringBuilder P2Cards = new StringBuilder();
-        StringBuilder P3Cards = new StringBuilder();
-        StringBuilder P4Cards = new StringBuilder();
+
         for (int j = 0; j < 8; j++) {
             P1Cards.append(Player1Hand[j].letter);
         }
-        ASCII.getPlayerCards(P1Cards.toString());
-        Thread.sleep(1000);
-        System.out.println(separation);
-        System.out.println("Player 2 hand is:");
-        for (int j = 0; j < 8; j++) {
-            P2Cards.append(Player2Hand[j].letter);
-        }
-        ASCII.getPlayerCards(P2Cards.toString());
-        Thread.sleep(1000);
-        System.out.println(separation);
-        System.out.println("Player 3 hand is:");
-        for (int j = 0; j < 8; j++) {
-            P3Cards.append(Player3Hand[j].letter);
-        }
-        ASCII.getPlayerCards(P3Cards.toString());
-        Thread.sleep(1000);
-        System.out.println(separation);
-        System.out.println("Player 4 hand is:");
-        for (int j = 0; j < 8; j++) {
-            P4Cards.append(Player4Hand[j].letter);
-        }
-        ASCII.getPlayerCards(P4Cards.toString());
-        Thread.sleep(1000);
-
+//        ASCII.getPlayerCards(P1Cards.toString());
         System.out.println(separation);
 
 
         //The game has started.This code will display the type of master cards for this particular set.
 
-        System.out.println("Game Started! The Master Cards is ");
-        if (Objects.equals(CardClass, "Spades")) {
+        System.out.println("Game Started! The Master Cards are ");
+        if (Objects.equals(CardClass, "Diamonds")) {
             System.out.println();
             System.out.println(" ___________________ ");
             System.out.println("|  _______________  |");
@@ -444,6 +423,16 @@ public class General {
             System.out.println();
         }
         Thread.sleep(1000);
+
+
+        System.out.println("Press Enter to continue.");
+        while(true) {
+            Scanner in = new Scanner(System.in);
+            String n = in.nextLine();
+            if (n != null){
+                break;
+            }
+        }
 
 
         //These variables will collect information about total amount of points of each team.
@@ -555,416 +544,200 @@ public class General {
 
             //Here is decided, who will be the first to show the card.
             //The general idea is the same as deciding the type of Master Cards.
-            double B = Math.random() * 10;
-            int WhoWillBeFirst;
-            if (B <= 2.5) {
-                WhoWillBeFirst = 1;
-            } else if (B > 2.5 && B <= 5) {
-                WhoWillBeFirst = 2;
-            } else if (B > 5 && B <= 7.5) {
-                WhoWillBeFirst = 3;
-            } else {
-                WhoWillBeFirst = 4;
-            }
+
 
             //This condition will appear when first player begins the game.
-            if (WhoWillBeFirst == 1) {
-                //first player turn
-                System.out.println("Player 1 will start");
-                while (true) {
-                    int rand = (int) (Math.random() * 8);
-                    if (Player1Hand[rand] != null) {
-                        PlayCards[0] = Player1Hand[rand];
-                        Player1Hand[rand] = null;
-                        break;
-                    }
-                }
-                //second player turn
+            //first player turn
+            System.out.println("Player 1 will start");
+            System.out.println("Set " + (k + 1));
+            System.out.println("                 " + ".______..______..______..______..______..______..______..______." + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println(" ________________" + "                            Player3                             " + "________________ ");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|   Player2                                          Player4   |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("                 " + "                             Player1                            " + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 0) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 1) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 2) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 3) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 4) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 5) + "                ");
+            System.out.println("------------------   1       2       3       4       5       6       7       8    -----------------");
 
-                for (int j = 0; j < 8; j++) {
-                    if (Player2Hand[j] != null && Player2Hand[j].type == PlayCards[0].type) {
-                        PlayCards[1] = Player2Hand[j];
-                        Player2Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
+            System.out.println("Enter Your Card (from 1 to 8)");
 
-                //third player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player3Hand[j] != null && Player3Hand[j].type == PlayCards[0].type) {
-                        PlayCards[2] = Player3Hand[j];
-                        Player3Hand[j] = null;
-                        break;
-                    }
+            while (true) {
+                Scanner in = new Scanner(System.in);
+                int n = in.nextInt();
+                if (Player1Hand[n - 1] != null) {
+                    PlayCards[0] = Player1Hand[n - 1];
+                    Player1Hand[n - 1] = null;
+                    break;
+                } else {
+                    System.out.println("You have already used this card. Please, choose another card.");
                 }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //Player 4 turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player4Hand[j] != null && Player4Hand[j].type == PlayCards[0].type) {
-                        PlayCards[3] = Player4Hand[j];
-                        Player4Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //This condition will appear when second player begins the game.
-            } else if (WhoWillBeFirst == 2) {
-                System.out.println("Player 2 will start");
-                //second player turn
-                while (true) {
-                    int rand = (int) (Math.random() * 8);
-                    if (Player2Hand[rand] != null) {
-                        PlayCards[1] = Player2Hand[rand];
-                        Player2Hand[rand] = null;
-                        break;
-                    }
-                }
-                //third player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player3Hand[j] != null && Player3Hand[j].type == PlayCards[1].type) {
-                        PlayCards[2] = Player3Hand[j];
-                        Player3Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //fourth player turn
-                for (int j = 0; j < 8; j++) {
-                    if (Player4Hand[j] != null && Player4Hand[j].type == PlayCards[1].type) {
-                        PlayCards[3] = Player4Hand[j];
-                        Player4Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //first player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player1Hand[j] != null && Player1Hand[j].type == PlayCards[1].type) {
-                        PlayCards[0] = Player1Hand[j];
-                        Player1Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //This condition will appear when third player begins the game.
-            } else if (WhoWillBeFirst == 3) {
-                System.out.println("Player 3 will start");
-                //third player turn
-                while (true) {
-                    int rand = (int) (Math.random() * 8);
-                    if (Player3Hand[rand] != null) {
-                        PlayCards[2] = Player3Hand[rand];
-                        Player3Hand[rand] = null;
-                        break;
-                    }
-                }
-                //fourth player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player4Hand[j] != null && Player4Hand[j].type == PlayCards[2].type) {
-                        PlayCards[3] = Player4Hand[j];
-                        Player4Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[3] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player4Hand[j] != null) {
-                            PlayCards[3] = Player4Hand[j];
-                            Player4Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //first player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player1Hand[j] != null && Player1Hand[j].type == PlayCards[2].type) {
-                        PlayCards[0] = Player1Hand[j];
-                        Player1Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //second player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player2Hand[j] != null && Player2Hand[j].type == PlayCards[2].type) {
-                        PlayCards[1] = Player2Hand[j];
-                        Player2Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                //This condition will appear when fourth player begins the game.
-            } else {
-                System.out.println("Player 4 will start");
-                //fourth player turn
-                while (true) {
-                    int rand = (int) (Math.random() * 8);
-                    if (Player4Hand[rand] != null) {
-                        PlayCards[3] = Player4Hand[rand];
-                        Player4Hand[rand] = null;
-                        break;
-                    }
-                }
-                //first player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player1Hand[j] != null && Player1Hand[j].type == PlayCards[3].type) {
-                        PlayCards[0] = Player1Hand[j];
-                        Player1Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null && Player1Hand[j].isMaster) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[0] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player1Hand[j] != null) {
-                            PlayCards[0] = Player1Hand[j];
-                            Player1Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //second player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player2Hand[j] != null && Player2Hand[j].type == PlayCards[3].type) {
-                        PlayCards[1] = Player2Hand[j];
-                        Player2Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[1] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player2Hand[j] != null) {
-                            PlayCards[1] = Player2Hand[j];
-                            Player2Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-                //third player turn
-
-                for (int j = 0; j < 8; j++) {
-                    if (Player3Hand[j] != null && Player3Hand[j].type == PlayCards[3].type) {
-                        PlayCards[2] = Player3Hand[j];
-                        Player3Hand[j] = null;
-                        break;
-                    }
-                }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-                if (PlayCards[2] == null) {
-                    for (int j = 0; j < 8; j++) {
-                        if (Player3Hand[j] != null) {
-                            PlayCards[2] = Player3Hand[j];
-                            Player3Hand[j] = null;
-                            break;
-                        }
-                    }
-                }
-
-
             }
 
+
+            //second player turn
+
+            for (int j = 0; j < 8; j++) {
+                if (Player2Hand[j] != null && Player2Hand[j].type == PlayCards[0].type) {
+                    PlayCards[1] = Player2Hand[j];
+                    Player2Hand[j] = null;
+                    break;
+                }
+            }
+            if (PlayCards[1] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player2Hand[j] != null && Player2Hand[j].isMaster) {
+                        PlayCards[1] = Player2Hand[j];
+                        Player2Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+            if (PlayCards[1] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player2Hand[j] != null) {
+                        PlayCards[1] = Player2Hand[j];
+                        Player2Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+
+            //third player turn
+
+            for (int j = 0; j < 8; j++) {
+                if (Player3Hand[j] != null && Player3Hand[j].type == PlayCards[0].type) {
+                    PlayCards[2] = Player3Hand[j];
+                    Player3Hand[j] = null;
+                    break;
+                }
+            }
+            if (PlayCards[2] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player3Hand[j] != null && Player3Hand[j].isMaster) {
+                        PlayCards[2] = Player3Hand[j];
+                        Player3Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+            if (PlayCards[2] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player3Hand[j] != null) {
+                        PlayCards[2] = Player3Hand[j];
+                        Player3Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+
+            //Player 4 turn
+
+            for (int j = 0; j < 8; j++) {
+                if (Player4Hand[j] != null && Player4Hand[j].type == PlayCards[0].type) {
+                    PlayCards[3] = Player4Hand[j];
+                    Player4Hand[j] = null;
+                    break;
+                }
+            }
+            if (PlayCards[3] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player4Hand[j] != null && Player4Hand[j].isMaster) {
+                        PlayCards[3] = Player4Hand[j];
+                        Player4Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+            if (PlayCards[3] == null) {
+                for (int j = 0; j < 8; j++) {
+                    if (Player4Hand[j] != null) {
+                        PlayCards[3] = Player4Hand[j];
+                        Player4Hand[j] = null;
+                        break;
+                    }
+                }
+            }
+            P1Cards = new StringBuilder(P1Cards.toString().replace(PlayCards[0].letter, " "));
+            //This condition will appear when second player begins the game.
+
+
             //this code will make it easier to understand each set of game.
+
+            System.out.println("Player 1 will start");
             System.out.println("Set " + (k + 1));
-            System.out.println("                                |Player 3|                         ");
-            System.out.println("                                    |                        ");
-            System.out.println("                                    v                        ");
-            System.out.println("                              " + PlayCards[2] + "                     ");
-            System.out.println("                                                             ");
-            System.out.println("|Player 2|  ->  " + PlayCards[1] + "                " + PlayCards[3] + "  <-  |Player 4|");
-            System.out.println("                                                             ");
-            System.out.println("                              " + PlayCards[0] + "                     ");
-            System.out.println("                                    ^                        ");
-            System.out.println("                                    |                        ");
-            System.out.println("                                |Player 1|                          ");
+            System.out.println("                 " + ".______..______..______..______..______..______..______..______." + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println("                 " + "|______||______||______||______||______||______||______||______|" + "                 ");
+            System.out.println(" ________________" + "                            Player3                             " + "________________ ");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[2].letter, 0) + "                           |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[2].letter, 1) + "                           |" + "| | | | | | | | |");
+            System.out.println(" ________________" + "|                           " + ASCII.getPlayerCardsString(PlayCards[2].letter, 2) + "                           |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[2].letter, 3) + "                           |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[2].letter, 4) + "                           |" + "| | | | | | | | |");
+            System.out.println(" ________________" + "                            " + ASCII.getPlayerCardsString(PlayCards[2].letter, 5) + "                            " + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|   Player2                                          Player4   |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 0) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 0) + "   |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 1) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 1) + "   |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 2) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 2) + "   |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 3) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 3) + "   |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 4) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 4) + "   |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|   " + ASCII.getPlayerCardsString(PlayCards[1].letter, 5) + "                                        " + ASCII.getPlayerCardsString(PlayCards[3].letter, 5) + "   |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                                                              |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                                                              |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[0].letter, 0) + "                           |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                           " + ASCII.getPlayerCardsString(PlayCards[0].letter, 1) + "                           |" + "________________|");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[0].letter, 2) + "                           |" + "| | | | | | | | |");
+            System.out.println("| | | | | | | | |" + "|                           " + ASCII.getPlayerCardsString(PlayCards[0].letter, 3) + "                           |" + "| | | | | | | | |");
+            System.out.println("|________________" + "|                           " + ASCII.getPlayerCardsString(PlayCards[0].letter, 4) + "                           |" + "________________|");
+            System.out.println("                 " + "                            " + ASCII.getPlayerCardsString(PlayCards[0].letter, 5) + "                            " + "                 ");
+            System.out.println("                 " + "                            Player1                           " + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 0) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 1) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 2) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 3) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 4) + "                ");
+            System.out.println("                 " + ASCII.getPlayerCardsString(String.valueOf(P1Cards.toString()), 5) + "                ");
+            System.out.println("------------------   1       2       3       4       5       6       7       8    -----------------");
+
+
 
 
             if (PlayCards[0].value > PlayCards[1].value &&
@@ -1014,7 +787,16 @@ public class General {
                 PlayCards[m] = null;
             }
 
+
             System.out.println(separation);
+            System.out.println("Press Enter to continue.");
+            while(true) {
+                Scanner in = new Scanner(System.in);
+                String n = in.nextLine();
+                if (n != null){
+                    break;
+                }
+            }
         }
         System.out.println("Game has finished!");
         System.out.println(separation);
@@ -1034,3 +816,6 @@ public class General {
 
 
 }
+
+
+
