@@ -1,7 +1,4 @@
 
-import java.util.*;
-
-
 class ASCII {
 
     public static void getPlayerCards(String Cards) {
