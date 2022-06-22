@@ -349,6 +349,7 @@ public class StartRealGame {
                 }
             }
         }
+        // Printing out the total points of each player.
         System.out.println("Game has finished!");
         System.out.println(separation);
         System.out.println("Total amount of points of 1 and 3 Player is " + pointsOf1and3);

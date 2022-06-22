@@ -238,6 +238,9 @@ public class GameLogic {
     }
 
     public static void Player3Turn(Cards[] Player3Hand, Cards[] PlayCards) {
+        // Checking if the player has a card of the same type as the first card played. If they do, they play that card. If
+        // they don't, they check if they have a master card. If they do, they play that card. If they don't, they play any
+        // card.
         for (int j = 0; j < 8; j++) {
             if (Player3Hand[j] != null && Player3Hand[j].type == PlayCards[0].type) {
                 PlayCards[2] = Player3Hand[j];
@@ -481,6 +484,8 @@ public class GameLogic {
     }
 
     public static String DimondsMaster(Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
+        // The above code is setting the value of the cards and setting them to true.
+        // Setting the value of the cards and setting them to true.
         String CardClass;
         CardClass = "Diamonds";
         AceOfDiamonds.setValue(11.0008);
