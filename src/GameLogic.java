@@ -16,6 +16,7 @@ public class GameLogic {
 
             System.out.println("To Start Game, type: Start");
             System.out.println("To Simulate Game, type: Simulation");
+            System.out.println("To show leaderboard, type: Leaderboards");
             System.out.println("To Exit Game, type: Exit");
 
 
@@ -27,7 +28,7 @@ public class GameLogic {
                 score.put(name, thisScore);
             } else if (n.equalsIgnoreCase("exit")) {
                 break;
-            } else if (n.equalsIgnoreCase("leaderboard")) {
+            } else if (n.equalsIgnoreCase("leaderboards")) {
                 GameLogic.printLeaders(score);
             } else {
                 System.out.println("Incorrect input. Please, try again.");
