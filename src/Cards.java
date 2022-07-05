@@ -11,7 +11,7 @@ public class Cards {
 
     public String letter;
 
-    public Cards(String name, int uniqueIndex, double value, int typeValue, boolean isMaster,int type,String letter) {
+    public Cards(String name, int uniqueIndex, double value, int typeValue, boolean isMaster, int type, String letter) {
         this.name = name;
         this.uniqueIndex = uniqueIndex;
         this.value = value;
@@ -26,7 +26,7 @@ public class Cards {
         this.value = value;
     }
 
-    public void setMaster(boolean isMaster){
+    public void setMaster(boolean isMaster) {
         this.isMaster = isMaster;
     }
 
@@ -34,10 +34,6 @@ public class Cards {
     public String toString() {
         return name;
     }
-
-
-
-
 
 
 }

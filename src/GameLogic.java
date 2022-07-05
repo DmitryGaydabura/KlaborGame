@@ -1,35 +1,82 @@
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class GameLogic {
-    public static void Player4HandCreated(Cards[] AllCards, Cards[] Player4Hand) {
+
+
+
+
+    public static void gameProcess(HashMap<String, Integer> score) throws InterruptedException {
+        while (true) {
+            System.out.println("Please, enter you" +
+                    "r name: (Your Score will Be saved)");
+            Scanner in = new Scanner(System.in);
+            String name = in.nextLine();
+
+            System.out.println("To Start Game, type: Start");
+            System.out.println("To Simulate Game, type: Simulation");
+            System.out.println("To Exit Game, type: Exit");
+
+
+            String n = in.nextLine();
+            if (n.equalsIgnoreCase("Simulation")) {
+                Simulation.StartSimulation();
+            } else if (n.equalsIgnoreCase("Start")) {
+                int thisScore = StartGame.Start();
+                score.put(name, thisScore);
+            } else if (n.equalsIgnoreCase("exit")) {
+                break;
+            } else if (n.equalsIgnoreCase("leaderboard")) {
+                GameLogic.printLeaders(score);
+            } else {
+                System.out.println("Incorrect input. Please, try again.");
+            }
+        }
+    }
+
+    public static void printGameLogo() {
+        System.out.println(
+                """
+                        ----------------------------------------------------------------
+                          _  ___       _                   _____                     \s
+                         | |/ / |     | |                 / ____|                    \s
+                         | ' /| | __ _| |__   ___  _ __  | |  __  __ _ _ __ ___   ___\s
+                         |  < | |/ _` | '_ \\ / _ \\| '__| | | |_ |/ _` | '_ ` _ \\ / _ \\
+                         | . \\| | (_| | |_) | (_) | |    | |__| | (_| | | | | | |  __/
+                         |_|\\_\\_|\\__,_|_.__/ \\___/|_|     \\_____|\\__,_|_| |_| |_|\\___|
+                        ----------------------------------------------------------------""");
+    }
+
+    public static void Player4HandCreated(List<Cards> AllCards, Cards[] Player4Hand) {
         int i;
         //Fourth Player Hand Created
         i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player4Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player4Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
     }
 
-    public static void Player3HandCreated(Cards[] AllCards, Cards[] Player3Hand) {
+    public static void Player3HandCreated(List<Cards> AllCards, Cards[] Player3Hand) {
         Player4HandCreated(AllCards, Player3Hand);
     }
 
-    public static void Player2HandCreated(Cards[] AllCards, Cards[] Player2Hand) {
+    public static void Player2HandCreated(List<Cards> AllCards, Cards[] Player2Hand) {
         Player4HandCreated(AllCards, Player2Hand);
     }
 
-    public static void Player1HandCreated(Cards[] AllCards, Cards[] Player1Hand) {
+    public static void Player1HandCreated(List<Cards> AllCards, Cards[] Player1Hand) {
         int i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player1Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player1Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
@@ -373,7 +420,7 @@ public class GameLogic {
         } else if (A > 5 && A <= 7.5) {
             CardClass = ClubsMaster(AceOfClubs, KingOfClubs, QueenOfClubs, JackOfClubs, TenOfClubs, NineOfClubs, EightOfClubs, SevenOfClubs);
         } else {
-            CardClass = DimondsMaster(AceOfDiamonds, KingOfDiamonds, QueenOfDiamonds, JackOfDiamonds, TenOfDiamonds, NineOfDiamonds, EightOfDiamonds, SevenOfDiamonds);
+            CardClass = DiamondsMaster(AceOfDiamonds, KingOfDiamonds, QueenOfDiamonds, JackOfDiamonds, TenOfDiamonds, NineOfDiamonds, EightOfDiamonds, SevenOfDiamonds);
         }
         return CardClass;
     }
@@ -445,45 +492,49 @@ public class GameLogic {
         return CardClass;
     }
 
-    public static void createDeck(Cards[] AllCards, Cards AceOfSpades, Cards KingOfSpades, Cards QueenOfSpades, Cards JackOfSpades, Cards TenOfSpades, Cards NineOfSpades, Cards EightOfSpades, Cards SevenOfSpades, Cards AceOfHearts, Cards KingOfHearts, Cards QueenOfHearts, Cards JackOfHearts, Cards TenOfHearts, Cards NineOfHearts, Cards EightOfHearts, Cards SevenOfHearts, Cards AceOfClubs, Cards KingOfClubs, Cards QueenOfClubs, Cards JackOfClubs, Cards TenOfClubs, Cards NineOfClubs, Cards EightOfClubs, Cards SevenOfClubs, Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
-        AllCards[0] = AceOfSpades;
-        AllCards[1] = KingOfSpades;
-        AllCards[2] = QueenOfSpades;
-        AllCards[3] = JackOfSpades;
-        AllCards[4] = TenOfSpades;
-        AllCards[5] = NineOfSpades;
-        AllCards[6] = EightOfSpades;
-        AllCards[7] = SevenOfSpades;
-
-        AllCards[8] = AceOfHearts;
-        AllCards[9] = KingOfHearts;
-        AllCards[10] = QueenOfHearts;
-        AllCards[11] = JackOfHearts;
-        AllCards[12] = TenOfHearts;
-        AllCards[13] = NineOfHearts;
-        AllCards[14] = EightOfHearts;
-        AllCards[15] = SevenOfHearts;
-
-        AllCards[16] = AceOfClubs;
-        AllCards[17] = KingOfClubs;
-        AllCards[18] = QueenOfClubs;
-        AllCards[19] = JackOfClubs;
-        AllCards[20] = TenOfClubs;
-        AllCards[21] = NineOfClubs;
-        AllCards[22] = EightOfClubs;
-        AllCards[23] = SevenOfClubs;
-
-        AllCards[24] = AceOfDiamonds;
-        AllCards[25] = KingOfDiamonds;
-        AllCards[26] = QueenOfDiamonds;
-        AllCards[27] = JackOfDiamonds;
-        AllCards[28] = TenOfDiamonds;
-        AllCards[29] = NineOfDiamonds;
-        AllCards[30] = EightOfDiamonds;
-        AllCards[31] = SevenOfDiamonds;
+    public static void createDeck(List<Cards> AllCards, Cards AceOfSpades, Cards KingOfSpades, Cards QueenOfSpades, Cards JackOfSpades, Cards TenOfSpades, Cards NineOfSpades, Cards EightOfSpades, Cards SevenOfSpades, Cards AceOfHearts, Cards KingOfHearts, Cards QueenOfHearts, Cards JackOfHearts, Cards TenOfHearts, Cards NineOfHearts, Cards EightOfHearts, Cards SevenOfHearts, Cards AceOfClubs, Cards KingOfClubs, Cards QueenOfClubs, Cards JackOfClubs, Cards TenOfClubs, Cards NineOfClubs, Cards EightOfClubs, Cards SevenOfClubs, Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
+        putCard(AllCards, AceOfSpades, KingOfSpades, QueenOfSpades, JackOfSpades, TenOfSpades, NineOfSpades, EightOfSpades, SevenOfSpades, AceOfHearts, KingOfHearts, QueenOfHearts, JackOfHearts, TenOfHearts, NineOfHearts, EightOfHearts, SevenOfHearts, AceOfClubs, KingOfClubs, QueenOfClubs, JackOfClubs, TenOfClubs, NineOfClubs, EightOfClubs, SevenOfClubs, AceOfDiamonds, KingOfDiamonds, QueenOfDiamonds, JackOfDiamonds, TenOfDiamonds, NineOfDiamonds, EightOfDiamonds, SevenOfDiamonds);
     }
 
-    public static String DimondsMaster(Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
+    static void putCard(List<Cards> AllCards, Cards AceOfSpades, Cards KingOfSpades, Cards QueenOfSpades, Cards JackOfSpades, Cards TenOfSpades, Cards NineOfSpades, Cards EightOfSpades, Cards SevenOfSpades, Cards AceOfHearts, Cards KingOfHearts, Cards QueenOfHearts, Cards JackOfHearts, Cards TenOfHearts, Cards NineOfHearts, Cards EightOfHearts, Cards SevenOfHearts, Cards AceOfClubs, Cards KingOfClubs, Cards QueenOfClubs, Cards JackOfClubs, Cards TenOfClubs, Cards NineOfClubs, Cards EightOfClubs, Cards SevenOfClubs, Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
+        AllCards.add(AceOfSpades);
+        AllCards.add(KingOfSpades);
+        AllCards.add(QueenOfSpades);
+        AllCards.add(JackOfSpades);
+        AllCards.add(TenOfSpades);
+        AllCards.add(NineOfSpades);
+        AllCards.add(EightOfSpades);
+        AllCards.add(SevenOfSpades);
+
+        AllCards.add(AceOfHearts);
+        AllCards.add(KingOfHearts);
+        AllCards.add(QueenOfHearts);
+        AllCards.add(JackOfHearts);
+        AllCards.add(TenOfHearts);
+        AllCards.add(NineOfHearts);
+        AllCards.add(EightOfHearts);
+        AllCards.add(SevenOfHearts);
+
+        AllCards.add(AceOfClubs);
+        AllCards.add(KingOfClubs);
+        AllCards.add(QueenOfClubs);
+        AllCards.add(JackOfClubs);
+        AllCards.add(TenOfClubs);
+        AllCards.add(NineOfClubs);
+        AllCards.add(EightOfClubs);
+        AllCards.add(SevenOfClubs);
+
+        AllCards.add(AceOfDiamonds);
+        AllCards.add(KingOfDiamonds);
+        AllCards.add(QueenOfDiamonds);
+        AllCards.add(JackOfDiamonds);
+        AllCards.add(TenOfDiamonds);
+        AllCards.add(NineOfDiamonds);
+        AllCards.add(EightOfDiamonds);
+        AllCards.add(SevenOfDiamonds);
+    }
+
+    public static String DiamondsMaster(Cards AceOfDiamonds, Cards KingOfDiamonds, Cards QueenOfDiamonds, Cards JackOfDiamonds, Cards TenOfDiamonds, Cards NineOfDiamonds, Cards EightOfDiamonds, Cards SevenOfDiamonds) {
         // The above code is setting the value of the cards and setting them to true.
         // Setting the value of the cards and setting them to true.
         String CardClass;
@@ -505,5 +556,11 @@ public class GameLogic {
         EightOfDiamonds.setMaster(true);
         SevenOfDiamonds.setMaster(true);
         return CardClass;
+    }
+
+    public static void printLeaders(HashMap<String, Integer> score) {
+
+        System.out.println(score);
+
     }
 }

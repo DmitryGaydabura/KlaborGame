@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class General {
+public class Simulation {
     public static void StartSimulation() throws InterruptedException {
         String separation = "--------------------------------------------------------------------------";
         System.out.println(separation);
@@ -8,7 +10,7 @@ public class General {
 
         //There are several arrays.
         //AllCards is used to store 32 Objects of Cards.
-        Cards[] AllCards = new Cards[32];
+        List<Cards> AllCards = new ArrayList<>(32);
         //These arrays are used to store info about each player hand.
         Cards[] Player1Hand = new Cards[8];
         Cards[] Player2Hand = new Cards[8];
@@ -186,41 +188,7 @@ public class General {
 
         //This block of code is used to collect all cards into one array "AllCards"
 
-        AllCards[0] = AceOfSpades;
-        AllCards[1] = KingOfSpades;
-        AllCards[2] = QueenOfSpades;
-        AllCards[3] = JackOfSpades;
-        AllCards[4] = TenOfSpades;
-        AllCards[5] = NineOfSpades;
-        AllCards[6] = EightOfSpades;
-        AllCards[7] = SevenOfSpades;
-
-        AllCards[8] = AceOfHearts;
-        AllCards[9] = KingOfHearts;
-        AllCards[10] = QueenOfHearts;
-        AllCards[11] = JackOfHearts;
-        AllCards[12] = TenOfHearts;
-        AllCards[13] = NineOfHearts;
-        AllCards[14] = EightOfHearts;
-        AllCards[15] = SevenOfHearts;
-
-        AllCards[16] = AceOfClubs;
-        AllCards[17] = KingOfClubs;
-        AllCards[18] = QueenOfClubs;
-        AllCards[19] = JackOfClubs;
-        AllCards[20] = TenOfClubs;
-        AllCards[21] = NineOfClubs;
-        AllCards[22] = EightOfClubs;
-        AllCards[23] = SevenOfClubs;
-
-        AllCards[24] = AceOfDiamonds;
-        AllCards[25] = KingOfDiamonds;
-        AllCards[26] = QueenOfDiamonds;
-        AllCards[27] = JackOfDiamonds;
-        AllCards[28] = TenOfDiamonds;
-        AllCards[29] = NineOfDiamonds;
-        AllCards[30] = EightOfDiamonds;
-        AllCards[31] = SevenOfDiamonds;
+        GameLogic.putCard(AllCards, AceOfSpades, KingOfSpades, QueenOfSpades, JackOfSpades, TenOfSpades, NineOfSpades, EightOfSpades, SevenOfSpades, AceOfHearts, KingOfHearts, QueenOfHearts, JackOfHearts, TenOfHearts, NineOfHearts, EightOfHearts, SevenOfHearts, AceOfClubs, KingOfClubs, QueenOfClubs, JackOfClubs, TenOfClubs, NineOfClubs, EightOfClubs, SevenOfClubs, AceOfDiamonds, KingOfDiamonds, QueenOfDiamonds, JackOfDiamonds, TenOfDiamonds, NineOfDiamonds, EightOfDiamonds, SevenOfDiamonds);
 
         //This block of code is designed to provide each player with 8 random cards.
         //After designating one card to someone, the code will automatically delete it from "AllCards"
@@ -231,9 +199,9 @@ public class General {
         int i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player1Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player1Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
@@ -242,9 +210,9 @@ public class General {
         i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player2Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player2Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
@@ -253,9 +221,9 @@ public class General {
         i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player3Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player3Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
@@ -264,9 +232,9 @@ public class General {
         i = 0;
         while (i < 8) {
             int rnd = (int) (Math.random() * 32);
-            if (AllCards[rnd] != null) {
-                Player4Hand[i] = AllCards[rnd];
-                AllCards[rnd] = null;
+            if (AllCards.get(rnd) != null) {
+                Player4Hand[i] = AllCards.get(rnd);
+                AllCards.set(rnd, null);
                 i++;
             }
         }
